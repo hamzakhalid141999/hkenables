@@ -48,6 +48,7 @@ export default function Home() {
   const [displayScreen, setDisplayScreen] = useState(false);
 
   useEffect(() => {
+    if (typeof window !== "undefined" && typeof document !== "undefined") {
     if (darkTheme !== undefined) {
       if (darkTheme) {
         // Set value of  darkmode to dark
@@ -59,6 +60,7 @@ export default function Home() {
         window.localStorage.setItem("theme", "light");
       }
     }
+  }
   }, [darkTheme]);
 
   // const handleToggle = () => {

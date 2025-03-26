@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect, useState, useContext } from "react";
 import classes from "./navbar.module.css";
 import { useRouter } from "next/router";
@@ -25,6 +27,7 @@ function Navbar() {
   let listener = null;
 
   useEffect(() => {
+    if (typeof window !== "undefined" && typeof document !== "undefined") {
     if (darkTheme !== undefined) {
       if (darkTheme) {
         // Set value of  darkmode to dark
@@ -36,6 +39,7 @@ function Navbar() {
         window.localStorage.setItem("theme", "light");
       }
     }
+  }
   }, [darkTheme]);
 
   const handleToggle = () => {
@@ -44,9 +48,9 @@ function Navbar() {
   };
 
   useEffect(() => {
-    document.addEventListener("scroll", () => {
-      if (document !== null) {
-        let scrolled = document.scrollingElement.scrollTop;
+    if (typeof window !== "undefined" && typeof document !== "undefined") {
+      const listener = () => {
+        const scrolled = document.scrollingElement?.scrollTop || 0;
 
         if (scrolled >= 10) {
           if (backgroundColor !== "opaque") {
@@ -57,12 +61,15 @@ function Navbar() {
             setBackgroundColor("transparent");
           }
         }
-      }
-    });
-    return () => {
-      document.removeEventListener("scroll", listener);
-    };
-  }, [backgroundColor]);
+      };
+
+      document.addEventListener("scroll", listener);
+      
+      return () => {
+        document.removeEventListener("scroll", listener);
+      };
+    }
+  }, [backgroundColor, setBackgroundColor]);
 
   return (
     <div
