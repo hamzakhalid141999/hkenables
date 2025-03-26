@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+}
+body,
+html,
+.App,
+#root {
+  color: #171f2f;
+  transition: ease-in-out 100ms;
+  background-color: var(--background) !important;
+}
+html {
+  scroll-snap-type: y mandatory;
+}
+a {
+  text-decoration: none !important;
+}
+p {
+  font-family: var(--dm) !important;
+}
+:root {
+  --background: white;
+  --textColor: #171f2f;
+  --darkColor1: rgb(14, 40, 101);
+  --darkColor2: rgb(62, 12, 98);
+  --darkColor3: rgb(99, 11, 26);
+  --darkColor4: rgb(107, 51, 9);
+  --greyText: rgb(131, 131, 131);
+}
+
+[data-theme="dark"] {
+  --background: #171f2f;
+  --textColor: white;
+  --darkColor1: white;
+  --darkColor2: white;
+  --darkColor3: white;
+  --darkColor4: white;
+  --greyText: white;
+}
+.marquee {
+  justify-content: space-between !important;
+}
+
+.react-responsive-modal-overlay,
+.react-responsive-modal-container,
+.react-responsive-modal-modal {
+  animation-fill-mode: forwards !important;
+}
+.react-responsive-modal-modal{
+  max-width: initial !important;
+}
+.carousel{
+  height: 70vh !important;
+}

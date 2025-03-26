@@ -1,0 +1,17 @@
+.popup_body {
+    padding: 10px 20px;
+    background-color: rgba(39, 39, 39, 0.425);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 30px;
+}
+
+.popup_body p{
+    font-family: var(--dm);
+    font-weight: 200;
+    color: white;
+}
